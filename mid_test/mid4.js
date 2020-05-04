@@ -6,8 +6,6 @@ const MAX = 10, MIN = 0;
 
 function test_sum(sum){
     let arr = [];
-
-
     for(let i = 0; i < 5; i++){
         arr[i] = Math.floor(Math.random() * (MAX - MIN + 1) + MIN);
     }
@@ -16,7 +14,7 @@ function test_sum(sum){
 
     //let result = sum(arr);
 
-    console.log(sum(arr));
+    console.log(sum());
 
 }
 
