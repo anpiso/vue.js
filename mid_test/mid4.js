@@ -1,4 +1,4 @@
-function sum(...arr){
+let sum = function(...arr){
     return arr.reduce((a,b)=>{return a+b});
 }
 
@@ -12,9 +12,11 @@ function test_sum(sum){
 
     console.log(arr);
 
-    //let result = sum(arr);
+    let result = 0;
 
-    console.log(sum());
+    result = sum(arr);
+
+    console.log(result);
 
 }
 
