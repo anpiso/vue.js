@@ -1,16 +1,12 @@
-let f = function sum(...arr){
-    let add = 0;
-    for(let i = 0; i < arr.length; i++){
-        add += arr[i];
-    }
-    return add;
+function sum(...arr){
+    return arr.reduce((a,b)=>{return a+b});
 }
 
 const MAX = 10, MIN = 0;
 
-function test_sum(f){
+function test_sum(sum){
     let arr = [];
-    let add = 0;
+
 
     for(let i = 0; i < 5; i++){
         arr[i] = Math.floor(Math.random() * (MAX - MIN + 1) + MIN);
@@ -18,15 +14,11 @@ function test_sum(f){
 
     console.log(arr);
 
-    let result = f(arr);
+    //let result = sum(arr);
 
-    for(let i = 0; i < 5; i++){
-        add += arr[i];
-    }
-    
-    console.log(result);
-    console.log(add);
+    console.log(sum(arr));
+
 }
 
 for(let i = 0; i < 5; i++)
-    test_sum(f);
+    test_sum(sum);
