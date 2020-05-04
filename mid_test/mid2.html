@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    </head>
+
+    <body>
+        <canvas id="rectangle" width="600" height="600" v-model="val"></canvas>
+        <div id="app">
+            <button type="button" v-on:click="visible" v-bind:disabled="val">보이기</button>
+            <button type="button" v-on:click="!visible" v-bind:disabled="!val">감추기</button>
+        </div>
+
+        <script type="text/javascript">
+        let canvas = document.getElementById("rectangle");
+        let context = canvas.getContext("2d");
+
+        context.strokeStyle = "black";
+        context.fillStyle = "yellow";
+        context.fillRect(350, 150, 250, 200);
+        context.strokeRect(350, 150, 250, 200);
+            var app = new Vue({
+                el: '#app',
+
+                data:{
+                    val: true
+                },
+
+                methods:{
+                    
+                }
+            })
+        </script>
+    </body>
+</html>
