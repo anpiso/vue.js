@@ -1,0 +1,42 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    div { padding: 30px; margin: 30px auto; max-width: 400px;
+      border: 1px solid #ccc; box-shadow: 3px 3px 3px #aaa; }
+    table { border-collapse: collapse; margin: 40px auto; }
+    td { width: 50px; height: 50px; border: 1px solid gray; font-size: 20pt;
+      text-align: center; cursor: pointer; }
+    .yellow { background-color: #ffa; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <table>
+      <tr v-for="(row, index1) in matrix" v-bind:key="index1">
+        <td v-for="(value, index2) in row" v-bind:key="index2" v-on:click="onClick(index1, index2)"
+            v-bind:class="{ yellow: clicked[index1][index2] }">
+          {{ value }}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        matrix: [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+        clicked: [[false, false, false], [false, false, false], [false, false, false]]
+      },
+      methods: {
+        onClick: function(r, c) {
+          this.clicked[r][c] = true;
+          this.$forceUpdate();
+        }
+      }
+    })
+   </script>
+</body>
+</html>
